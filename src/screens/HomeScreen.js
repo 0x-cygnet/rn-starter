@@ -30,6 +30,10 @@ title="Go to Components Demo"
   title='Go to Color Square Screen!!'
   onPress={() => navigation.navigate('Square')}
    />
+   <Button 
+  title='Go to Color Square Workshop!!'
+  onPress={() => navigation.navigate('Workshop')}
+   />
 {/* <TouchableOpacity onPress={() => props.navigation.navigate('List')}>
     <Text>Go to list demo</Text>
 </TouchableOpacity> */}
