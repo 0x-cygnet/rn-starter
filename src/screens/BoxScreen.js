@@ -14,7 +14,7 @@ const BoxScreen = () => {
 const styles = StyleSheet.create({
  viewStyle: {
    borderWidth: 5,
-   borderColor:'black',
+   borderColor:'blue',
    height:200,
    justifyContent:'space-evenly'
 
