@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 
-const ExerciseScreen = () => {
+const Exercise1Screen = () => {
   const myName = "Chris";
 
   return (
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExerciseScreen;
+export default Exercise1Screen;

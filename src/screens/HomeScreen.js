@@ -1,20 +1,44 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
 
-const HomeScreen = () => {
-  return <Text style={styles.text}>Bluegrass Homescreen</Text>;
-  //the "Text" element is a primitive element provided by the react library (line 1)
+//putting "props" as an input allows us to access all other props on load
+//(needed for redirection among other things)
+//we can also replace "props" (since it's assumed by default) with "{navigation}" to only bring
+//the navigation object
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View>
+      <Text style={styles.text}>Bluegrass Homescreen</Text>
+      <Button
+        title={"Go to Components Demo"}
+        //To add navigation to another page, we can call props.navigation.navigate("name from app.js")
+        onPress={() => navigation.navigate("Components")}
+      />
 
-  //Common types of "primative" elements (elements provided by the React library):
-  //TEXT - show text to the user. any text placed OUTSIDE of a "Text" will cause an error
-  //VIEW - general purpose element used to group other elements, or for styling (span/div?)
-  //IMAGE - show an image
-  //BUTTON - show a button the user can press. gives feedback whenever user presses it
-
-
-  //JSX (eg: "return <Text>blah</Text>;") gets converted by babel into regular javascript to 
-  //be displayed (you can see it working at babeljs.io)
+      <Button
+        title="Go to List Demo"
+        onPress={() => navigation.navigate("List")}
+      />
+      {/* <TouchableOpacity onPress={() => props.navigation.navigate("List")}>
+        <Text>Go to List Demo</Text>
+        <Text>Go to List Demo</Text>
+        <Text>Go to List Demo</Text>
+      </TouchableOpacity> */}
+    </View>
+  );
 };
+//ON BUTTONS:
+//Buttons appear slightly different depending on if you're on android or iphone
+//Buttons are self-closing
+//onPress = onclick
+
+//ON TOUCHABLEOPACITY
+//no stylization by default - it just appears like normal text
+//will flash briefly when clicked, so the user has some feedback
+//you can include one or many of just about any type of element inside of a TouchableOpacity element
+
+//ON Console.log
+//console.log appears in the cmd prompt/terminal window
 
 const styles = StyleSheet.create({
   text: {
@@ -23,6 +47,5 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
 
 //NOTE: app.js in main folder is where we decide which screens are visible from where
