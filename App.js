@@ -5,6 +5,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import ComponentsScreen from "./src/screens/ComponentsScreen";
 import ListScreen from "./src/screens/ListScreen";
+import ImageScreen from "./src/screens/ImageScreen";
 
 //exercise imports
 import Exercise1Screen from "./src/screens/Exercise1Screen";
@@ -20,6 +21,7 @@ const navigator = createStackNavigator(
     Exercise1: Exercise1Screen,
     List: ListScreen,
     Exercise2: FlatlistExerciseScreen,
+    Image: ImageScreen,
   },
   {
     initialRouteName: "Home",
