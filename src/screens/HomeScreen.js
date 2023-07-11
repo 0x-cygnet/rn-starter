@@ -8,7 +8,7 @@ import BannerSlider from '../Components/BannerSlider';
 import {windowWidth} from '../../utils/Dimensions';
 import ListFreestyleWorkouts from '../data/ListFreestyleWorkouts';
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
   const renderBanner =({item, index}) => {
 return <BannerSlider data={item}/>
   }
@@ -16,13 +16,15 @@ return <BannerSlider data={item}/>
     <SafeAreaView style = {{Flex:1, ImageBackground: '#fff'}}>
       <ScrollView style={{padding:20,}}>
       <View style={{
-        flexDirection:'row', 
+        flexDirection:'row',  
         justifyContent: 'space-between', 
         marginBottom: 20,}}>
         <Text style={{fontSize: 16,}}>Hola Yanel</Text>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
         <ImageBackground source={require('../../assets/images/profile-pic.jpeg')}
         style={{ width: 35, height: 35}}
         imageStyle={{borderRadius: 25}}/>
+        </TouchableOpacity> 
    </View>
    <View style={{
     flexDirection: 'row', 
