@@ -1,17 +1,13 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import HomeScreen from "./src/screens/HomeScreen";
+import React from 'react';
+import { AuthProvider } from './src/context/AuthContext';
+import AppNav from './src/navigations/AppNav';
 
-const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-  },
-  {
-    initialRouteName: "Home",
-    defaultNavigationOptions: {
-      title: "App",
-    },
-  }
-);
+function App() {
+  return (
+    <AuthProvider>
+   <AppNav/>
+    </AuthProvider>
+  );
+}
 
-export default createAppContainer(navigator);
+export default App;
