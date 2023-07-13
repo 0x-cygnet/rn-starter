@@ -20,7 +20,6 @@ const Drawer = createDrawerNavigator();
 const AppStack = () => {
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props}/>} screenOptions={{
-      headerShown: false, 
       drawerActiveBackgroundColor: colors.primary,
       drawerActiveTintColor: colors.secondary,
       drawerInactiveTintColor: colors.lightBlue,
@@ -30,6 +29,7 @@ const AppStack = () => {
         },
     }}>
     <Drawer.Screen name="Home" component={TabNavigator} options={{
+      headerShown: false,
       drawerIcon: ({color})=>(
         <Ionicons name='ios-home' size={22} color={color}/>
       )

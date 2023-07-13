@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Button, SafeAreaView, StyleSheet } from "react-native";
+import { View, Button, SafeAreaView, StyleSheet, ImageBackground  } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { 
@@ -16,12 +16,10 @@ const PerfilScreen =() => {
     <SafeAreaView style={styles.container}>
     <View style ={styles.userInfoSection}>
       <View style = {{flexDirection: 'row', marginTop: 15}}>
-        <Avatar.Image
-        source={{
-          uri: 'https://api.adorable.io/avatars/80/abott@adorable.png',
-        }}
-        size={89}
-        />
+        <ImageBackground 
+        source={require('../../assets/images/profile-pic.jpeg')}
+        style={{ width: 80, height: 80}}
+        imageStyle={{borderRadius: 75}}/>
         <View style ={{marginLeft: 20}}>
           <Title style = {[styles.title, {
             marginTop: 15,
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
   },
 title: {
   fontSize: 24,
-  fontWeight: 'bold',
+  fontWeight: '500',
 },
 caption: {
   fontSize: 14,

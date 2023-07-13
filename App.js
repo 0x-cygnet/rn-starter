@@ -1,20 +1,12 @@
 import React from 'react';
-
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-import AuthStack from './src/navigations/AuthStack';
-import AppStack from './src/navigations/AppStack';
-
-
-const Stack = createNativeStackNavigator();
+import { AuthProvider } from './src/context/AuthContext';
+import AppNav from './src/navigations/AppNav';
 
 function App() {
   return (
-    <NavigationContainer>
-      {/* <AppStack /> */}
-      <AuthStack />
-    </NavigationContainer>
+    <AuthProvider>
+   <AppNav/>
+    </AuthProvider>
   );
 }
 

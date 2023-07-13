@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { sliderData } from '../data/HomeSliderData';
 import BannerSlider from '../Components/BannerSlider';
 import {windowWidth} from '../../utils/Dimensions';
-import ListFreestyleWorkouts from '../data/ListFreestyleWorkouts';
+
 
 export default function HomeScreen({navigation}){
   const renderBanner =({item, index}) => {
@@ -20,7 +20,7 @@ return <BannerSlider data={item}/>
         justifyContent: 'space-between', 
         marginBottom: 20,}}>
         <Text style={{fontSize: 16,}}>Hola Yanel</Text>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
         <ImageBackground source={require('../../assets/images/profile-pic.jpeg')}
         style={{ width: 35, height: 35}}
         imageStyle={{borderRadius: 25}}/>

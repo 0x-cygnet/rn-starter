@@ -1,58 +1,46 @@
-import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
+import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import PerfilScreen from "../screens/PerfilScreen";
-import EditProfileScreen from "../screens/EditProfileScreen";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from '../rn-starter/src/screens/HomeScreen';
+import EntrenaminetosScreen from '../rn-starter/src/screens/EntrenamientosScreen';
+import PerfilScreen from '../rn-starter/src/screens/PerfilScreen';
+import {colors} from '../rn-starter/src/constants/theme';
 
 
-const ProfileStack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-const ProfileStackScreen = ({navigation}) => {
+const TopMenuNavigator = () =>{
 
   return (
-    <ProfileStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#fff',
-          shadowColor: 'black', // iOS
-          elevation: 0, // Android
-        },
-        headerTintColor: '#000',
-      }}>
-      <ProfileStack.Screen
-        name="Profile"
-        component={PerfilScreen}
-        options={{
-          title: '',
-          headerLeft: () => (
-            <View style={{marginLeft: 10}}>
-              <Ionicons
-                name="reorder-three-outline"
-                size={25}
-                backgroundColor= "#000"
-              />
-            </View>
-          ),
-          headerRight: () => (
-            <View style={{marginRight: 10}}>
-              <Ionicons
-                name="ellipsis-vertical"
-                size={25}
-                backgroundColor={colors.background}
-                color={colors.text}
-                onPress={() => navigation.navigate('EditProfile')}
-              />
-            </View>
-          ),
-        }}
-      />
-      <ProfileStack.Screen
-        name="EditProfile"
-        options={{
-          title: 'Edit Profile',
-        }}
-        component={EditProfileScreen}
-      />
-    </ProfileStack.Navigator>
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarStyle: {
+            backgroundColor: colors.primary,
+            height: 90,
+          },
+          tabBarIcon: ({ focused, size, color, }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = focused ? 'ios-home' : 'ios-home-outline';
+            } else if (route.name === 'Entrenamientos') {
+              iconName = focused ? 'fitness' : 'fitness-outline';
+            } else if (route.name === 'Perfil') {
+              iconName = focused ? 'person-circle' : 'person-circle-outline';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: colors.secondary,
+          inactiveTintColor: colors.lightBlue,
+        }}>
+
+        <Tab.Screen name='Home' component={HomeScreen} />
+        <Tab.Screen name='Entrenamientos' component={EntrenaminetosScreen} />
+        <Tab.Screen name='Perfil' component={PerfilScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-};
+}
+export default TopMenuNavigator;
