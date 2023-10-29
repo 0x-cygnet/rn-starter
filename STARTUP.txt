@@ -1,0 +1,1 @@
+ `npx expo start --tunnel` in Powershell in order to get the bundler to work.
